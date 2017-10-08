@@ -13,4 +13,13 @@ INSERT INTO photos (name, genreid) VALUES /* add created !*/
   ('DSC_5656.jpg', 4),
   ('DSC_8794.jpg', 1),
   ('DSC_9037.jpg', 3),
-  ('DSC_6315-HDR.jpg', 1);
+  ('DSC_6315-HDR.jpg', 1),
+  ('DSC_9079.jpg', 1),
+  ('DSC_9090-Edit.jpg', 1),
+  ('Lincoln Park.jpg', 1),
+  ('LIncoln part restorant.jpg', 1),
+  ('Malie.jpg', 2),
+  ('Mary Park.jpg', 1),
+  ('Millenium park.jpg', 4),
+  ('drummer.jpg', 2),
+  ('View from Montrose.jpg', 1);

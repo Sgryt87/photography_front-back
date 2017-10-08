@@ -40,36 +40,21 @@ require_once 'db/script.php';
     <a name="port"></a>
     <h2>My Portfolio</h2>
     <div id="genres">
-        <button class="btn">All</button>
+        <button class="btnGenre">All</button>
         <?php
         $result = getGenres();
         while ($row = mysqli_fetch_assoc($result)) {
-            echo "<button class='btn'>" . $row['name'] . "</button>";
-
+            echo "<button class='btnGenre'>" . $row['name'] . "</button>";
         }
         ?>
     </div>
     <div class="clearfix"></div>
-    <div id="photos">
-        <?php
-        $dir_path = 'photos/';
-        $extensions_array = array('jpg','png', 'jpeg');
-        if(is_dir($dir_path)) {
-            $files = scandir($dir_path);
-            for($i = 0; $i < count($files); $i++) {
-                if($files[$i] !='.' && $files[$i] !='..') {
-//                    echo "File name -> $files[$i]<br>";
-                    $file = pathinfo($files[$i]);
-                    $extension = $file['extension'];
-//                    echo "File extension -> $extension<br>";
-                    if(in_array($extension, $extensions_array)){
-                        echo "<img src='$dir_path$files[$i]' class='img'>";
-                    }
-
-                }
-            }
-        }
-        ?>
+    <div id="photos"></div>
+    <div class="clearfix"></div>
+    <div id="pagination">
+        <button id="nextBtn">Previous</button>
+        <div id="pagesBtn"></div>
+        <button id="prevBtn">Next</button>
     </div>
     <div class="clearfix"></div>
     <footer>
@@ -85,6 +70,6 @@ require_once 'db/script.php';
         <p>&copy; Photography.</p>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/paginator.js"></script>
 </body>
 </html>

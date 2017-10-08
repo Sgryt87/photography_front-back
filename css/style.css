@@ -80,7 +80,7 @@ h1 {
 #genres {
 	margin-left: 700px;
 }
-.btn {
+.btnGenre {
 	float: left;
 }
 .img {
@@ -93,6 +93,17 @@ h1 {
 .img img:hover {
 	opacity: 0.6;
 }
+#pagination button {
+    float: left;
+}
+
+.paginationBtn:hover {
+    background-color: #6f6f6f;
+}
+.activeBtn {
+    background-color: #5bc0de;
+}
+
 /*FIXED---------*/
 /*NAVIGATION*/
 nav {
