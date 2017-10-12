@@ -30,7 +30,7 @@ function photosPage() {
             $('#photos').empty();
             for (var i = 0; i < result.photos.length; i++) {
                 var imgSrc = './photos/' + result.photos[i].name;
-                $('#photos').append('<img src="' + imgSrc + '" alt="' + result.photos[i].name + '" class="img">');
+                $('#photos').append('<img src="' + imgSrc + '" alt="' + result.photos[i].name + '" class="col-md-4 col-sm-6 col-xs-12 img">');
             }
             $('#pagesBtn').empty();
             for (var i = 0; i < result.totalNumPages; i++) {

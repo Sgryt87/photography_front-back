@@ -13,6 +13,7 @@ require_once 'db/script.php';
     <link rel="stylesheet" href="css/media-query.css">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="img/camera-icon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
 </head>
 <body>
@@ -49,7 +50,9 @@ require_once 'db/script.php';
         ?>
     </div>
     <div class="clearfix"></div>
-    <div id="photos"></div>
+    <div class="container">
+        <div class="row" id="photos"></div>
+    </div>
     <div class="clearfix"></div>
     <div id="pagination">
         <button id="nextBtn">Previous</button>
@@ -70,6 +73,8 @@ require_once 'db/script.php';
         <p>&copy; Photography.</p>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/paginator.js"></script>
 </body>
 </html>
