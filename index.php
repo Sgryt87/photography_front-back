@@ -41,7 +41,7 @@ require_once 'db/script.php';
     <a name="port"></a>
     <h2>My Portfolio</h2>
     <div id="genres">
-        <button class="btnGenre">All</button>
+        <button class="btnGenre btnHover">All</button>
         <?php
         $result = getGenres();
         while ($row = mysqli_fetch_assoc($result)) {
@@ -55,9 +55,7 @@ require_once 'db/script.php';
     </div>
     <div class="clearfix"></div>
     <div id="pagination">
-        <button id="nextBtn">Previous</button>
         <div id="pagesBtn"></div>
-        <button id="prevBtn">Next</button>
     </div>
     <div class="clearfix"></div>
     <footer>

@@ -22,4 +22,21 @@ INSERT INTO photos (name, genreid) VALUES /* add created !*/
   ('Mary Park.jpg', 1),
   ('Millenium park.jpg', 4),
   ('drummer.jpg', 2),
-  ('View from Montrose.jpg', 1);
+  ('View from Montrose.jpg', 1),
+  ('IMG_5633.jpg', 4),
+  ('IMG_5670.jpg', 4),
+  ('IMG_5677.jpg', 4),
+  ('IMG_5734.jpg', 4),
+  ('IMG_5790.jpg', 4),
+  ('IMG_5820.jpg', 4),
+  ('IMG_5909.jpg', 4),
+  ('IMG_5939.jpg', 4),
+  ('IMG_5952.jpg', 4),
+  ('IMG_5976.jpg', 4),--
+  ('IMG_6029.jpg', 4),
+  ('IMG_6106.jpg', 1),
+  ('IMG_6116.jpg', 1),
+  ('IMG_7547.jpg', 1),
+  ('IMG_7574.jpg', 1);
+
+

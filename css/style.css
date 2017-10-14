@@ -77,6 +77,10 @@ h1 {
 	padding: 10px;
 }
 /*FIXED---------*/
+.btnHover {
+	background-color: #6f6f6f;
+}
+
 #genres {
 	margin-left: 700px;
 }
