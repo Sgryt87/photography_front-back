@@ -12,7 +12,7 @@ $pageNum = $_GET['page'] ?? 1;
 //    die("Page not found");
 //}
 $totalNumPages = 0;
-$limitPhotos = 3;
+$limitPhotos = 9;
 $offset = ($pageNum - 1) * $limitPhotos;
 if (strcasecmp($genre, 'All') == 0) {
     $queryCount = "SELECT COUNT(*) FROM photos INNER JOIN genres ON photos.genreid = genres.id";
