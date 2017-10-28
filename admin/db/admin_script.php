@@ -81,3 +81,36 @@ function getGenreById($genreid)
     $row = mysqli_fetch_assoc($select_genres_id);
     return $row['name'];
 }
+
+function updateGenre($genreid, $name)
+{
+    $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    if (!$connection) {
+        die('Database connection failed' . mysqli_error($connection));
+    }
+    $query = "UPDATE genres SET `name` ='{$name}' WHERE id = {$genreid}";
+    $update_genre_query = mysqli_query($connection, $query);
+    return $update_genre_query;
+}
+
+function addGenre($name)
+{
+    $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    if (!$connection) {
+        die('Database connection failed' . mysqli_error($connection));
+    }
+    $query = "INSERT INTO genres (`name`) VALUES ('$name')";
+    $add_genre_query = mysqli_query($connection, $query);
+    return $add_genre_query;
+}
+
+function deleteGenre($genreid)
+{
+    $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    if (!$connection) {
+        die('Database connection failed' . mysqli_error($connection));
+    }
+    $query = "DELETE FROM genres WHERE id = $genreid";
+    $delete_genre_query = mysqli_query($connection, $query);
+    return $delete_genre_query;
+}

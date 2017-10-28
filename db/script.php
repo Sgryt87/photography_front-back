@@ -1,13 +1,13 @@
 <?php
 function getGenres()
 {
-    $db['db_host'] = 'localhost';
-    $db['db_user'] = 'root';
-    $db['db_pass'] = '';
-    $db['db_name'] = 'photography';
-        foreach ($db as $key => $value) {
-        define(strtoupper($key), $value);
-    }
+//    $db['db_host'] = 'localhost';
+//    $db['db_user'] = 'root';
+//    $db['db_pass'] = '';
+//    $db['db_name'] = 'photography';
+//    foreach ($db as $key => $value) {
+//        define(strtoupper($key), $value);
+//    }
     $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     if (!$connection) {
         die('Database connection failed' . mysqli_error($connection));
@@ -18,4 +18,20 @@ function getGenres()
         die('Not found' . mysqli_error());
     }
     return $request;
+}
+
+function connection()
+{
+//    global $connection;
+    $db['db_host'] = 'localhost';
+    $db['db_user'] = 'root';
+    $db['db_pass'] = '';
+    $db['db_name'] = 'photography';
+    foreach ($db as $key => $value) {
+        define(strtoupper($key), $value);
+    }
+//    $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+//    if (!$connection) {
+//        die('Database connection failed' . mysqli_error($connection));
+//    }
 }
