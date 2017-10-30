@@ -1,14 +1,14 @@
-<?php include 'includes/admin_header.php'; ?>
+<?php include '../includes/admin_header.php'; ?>
 <?php
 if (isset($_POST['add_btn'])) {
 
     $post_photo = $_FILES['image']['name'];
     $post_photo_temp = $_FILES['image']['tmp_name'];
     $post_genre_id = $_POST['genre'];
-    if(!file_exists(__DIR__ . "/../photos/$post_photo")) {
-        move_uploaded_file($post_photo_temp, __DIR__ . "/../photos/$post_photo");
+    if(!file_exists(__DIR__ . "../../../photos/$post_photo")) {
+        move_uploaded_file($post_photo_temp, __DIR__ . "../../../photos/$post_photo");
         addPhoto($post_photo, $post_genre_id);
-        header("Location: photos.php");
+        header("Location: index.php");
     } else {
         echo "<script type='text/javascript'>alert('This file already exists');</script>";
     }
@@ -65,4 +65,4 @@ if (isset($_POST['add_btn'])) {
 
     </div>
     <!-- /#page-wrapper -->
-<?php include 'includes/admin_footer.php'; ?>
+<?php include '../includes/admin_footer.php'; ?>

@@ -1,5 +1,5 @@
-INSERT INTO admin (login, pswd, email) VALUES
-  ('admin', '202cb962ac59075b964b07152d234b70', 'sergiigrytsaienko@gmail.com');
+INSERT INTO admin (login, `hash`, email, salt) VALUES
+  ('admin', '123', 'sergiigrytsaienko@gmail.com', '333');
 
 INSERT INTO ge  nres (name) VALUES
   ('Street'),

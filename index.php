@@ -1,7 +1,9 @@
 <?php
 require_once 'db/script.php';
+session_start();
 ?>
 <?php connection(); ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,22 +53,7 @@ require_once 'db/script.php';
     <!-- /Navigation -->
     <br>
     <br>
-    <!--    LOGIN-->
-    <div class="row">
-        <div class="well">
-            <h4>LOGIN</h4>
-            <form action="includes/login.php" method="post">
-                <div class="form-group">
-                    <input type="text" name="login" class="form-control" placeholder="Enter Username">
-                </div>
-                <div class="input-group">
-                    <input type="password" name="pswd" class="form-control" placeholder="Enter Password">
-                    <span class="input-group-btn"><button class="btn btn-primary" name="login_btn"
-                                                          type="submit">Submit</button></span>
-                </div>
-            </form>
-        </div>
-    </div>
+
     <br>
     <br>
     <!-- Header -->

@@ -33,8 +33,8 @@
                         echo "<tr>";
                         echo "<td>{$genres_id}</td>";
                         echo "<td>{$genres_name}</td>";
-                        echo "<td><a href='edit.php?g_id={$genres_id}'>Edit</a></td>";
-                        echo "<td><a href='delete.php?g_id={$genres_id}'>Delete</a></td>";
+                        echo "<td><a href='edit.php?g_id={$genres_id}' class='btn btn-primary' class='btn btn-primary'>Edit</a></td>";
+                        echo "<td><a href='delete.php?g_id={$genres_id}' class='btn btn-primary' class='btn btn-primary'>Delete</a></td>";
                         echo "</tr>";
                     }
 
@@ -43,28 +43,6 @@
                     </tbody>
                 </table>
                 <a href="add.php" class="btn btn-primary">Add Genre</a>
-                <!--                --><?php
-                //                if (isset($_GET['source'])) {
-                //                    $source = $_GET['source'];
-                //                } else {
-                //                    $source = '';
-                //                }
-                //
-                //                switch ($source) {
-                //                    case 'add_genre';
-                //                        include 'genres/add_genre.php';
-                //                        break;
-                //
-                //                    case 'edit_genre';
-                //                        include 'genres/edit_genre.php';
-                //                        break;
-                //
-                //                    default:
-                //                        include 'genres/index.php';
-                //                        break;
-                //                }
-                //
-                //                ?>
             </div>
             <div class="row">
 
