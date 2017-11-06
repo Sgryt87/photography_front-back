@@ -53,7 +53,7 @@ if (!isset($_SESSION['login']) || !isset($_SESSION['password'])) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">SB Admin</a>
+            <a class="navbar-brand" href="index.html">CMS Admin</a>
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
@@ -72,6 +72,9 @@ if (!isset($_SESSION['login']) || !isset($_SESSION['password'])) {
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
+                <li>
+                    <a href="../dashboard/index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                </li>
                 <li>
                     <a href="javascript:;" data-toggle="collapse" data-target="#photos">
                         <i class="fa fa-file-image-o" aria-hidden="true"></i> Photos <i class="fa fa-fw fa-caret-down"></i>

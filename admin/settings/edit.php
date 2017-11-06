@@ -10,9 +10,22 @@ while ($row = mysqli_fetch_assoc($result)) {
     $admin_email = $row['email'];
     $admin_password = $row['hash'];
 }
+
+
 if (isset($_POST['update'])) {
-    updateAdmin($admin_id, $_POST['login'], $_POST['email'], $_POST['password']);
-        header ('Location: index.php');
+    $name = mysqli_real_escape_string($connection, $_POST['login']);
+    $email = mysqli_real_escape_string($connection, trim($_POST['email']));
+    $pass1 = mysqli_real_escape_string($connection, trim($_POST['password']));
+    $pass2 = mysqli_real_escape_string($connection, trim($_POST['confirm_password']));
+    if ($pass1 === $pass2) {
+        $hash = password_hash($pass1, PASSWORD_DEFAULT);
+        updateAdmin($admin_id, $name, $email, $hash);
+        $_SESSION['success'] = true;
+        header('Location: index.php');
+    } else {
+        echo "<script>alert('Please re-enter your password, it didn\'t match')</script>";
+    }
+
 }
 
 
@@ -35,7 +48,13 @@ if (isset($_POST['update'])) {
 
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input value="<?php echo $admin_password; ?>" type="password" class="form-control"
+                            <input value="" type="password" class="form-control"
+                                   name="password">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirm_password">Re-enter Your Password</label>
+                            <input value="" type="password" name="confirm_password" class="form-control"
                                    name="password">
                         </div>
 

@@ -40,7 +40,7 @@ if (isset($_POST['add_btn'])) {
                     </div>
 
                     <div class="form-group">
-                        <label for="genre">Genre</label>
+                        <labxel for="genre">Genre</labxel>
                         <select name="genre" id="">
                             <?php
                             $result = getGenres();

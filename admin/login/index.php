@@ -1,7 +1,16 @@
 <?php
 include '../../db/global_config.php';
 include '../db/admin_script.php'; ?>
-<?php session_start(); ?>
+<?php session_start();
+if(isset($_SESSION['login']) && isset($_SESSION['password']) ) {
+    header('Location: ../dashboard/index.php');
+}
+
+
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -41,9 +50,9 @@ include '../db/admin_script.php'; ?>
         </div>
     </div>
 </div>
-<!--<!-- jQuery -->
+<!-- jQuery -->
 <script src="../js/jquery.js"></script>
-<!--<!-- Bootstrap Core JavaScript -->
+<!-- Bootstrap Core JavaScript -->
 <script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
@@ -51,8 +60,8 @@ include '../db/admin_script.php'; ?>
 
 <?php
 if (isset($_POST['login_btn'])) {
-    $admin_login = $_POST['login'];
-    $admin_password = $_POST['password'];
+    $admin_login = trim($_POST['login']);
+    $admin_password = trim($_POST['password']);
     $admin_login = mysqli_real_escape_string($connection, $admin_login);
     $admin_password = mysqli_real_escape_string($connection, $admin_password);
 
@@ -71,10 +80,10 @@ if (isset($_POST['login_btn'])) {
         $db_admin_login = $row['login'];
         $db_admin_password = $row['hash'];
 
-        if ($admin_login === $db_admin_login && $admin_password === $db_admin_password) {
+        if ($admin_login === $db_admin_login && password_verify($admin_password, $db_admin_password)) {
             $_SESSION['login'] = $db_admin_login;
             $_SESSION['password'] = $db_admin_password;
-            header('Location: ../photos/index.php');
+            header('Location: ../dashboard/index.php');
         } else {
             echo "<script type='text/javascript'>alert('Login information is not correct')</script>";
         }

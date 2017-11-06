@@ -29,6 +29,18 @@ function getPhotos()
     return $request;
 }
 
+function getPhotosCount()
+{
+    global $connection;
+    $query = 'SELECT * FROM photos';
+    $request = mysqli_query($connection, $query);
+    if (!$request) {
+        die('Not found' . mysqli_error());
+    }
+    $count = mysqli_num_rows($request);
+    return $count;
+}
+
 function getPhotoById($photoid)
 {
     global $connection;
@@ -84,6 +96,18 @@ function getGenres()
     return $request;
 }
 
+function getGenresCount()
+{
+    global $connection;
+    $query = 'SELECT * FROM genres';
+    $request = mysqli_query($connection, $query);
+    if (!$request) {
+        die('Not found' . mysqli_error());
+    }
+    $count = mysqli_num_rows($request);
+    return $count;
+}
+
 
 function getGenreById($genreid)
 {
@@ -124,6 +148,18 @@ function getAdmin()
     $query = "SELECT * FROM admin";
     $admin_email_query = mysqli_query($connection, $query);
     return $admin_email_query;
+}
+
+function saltGenerator($num)
+{
+    $result = "";
+    $chars = "79h799g7g7g8we6cwege8c8813gf3c32787v484bv748b2vbshvdkshkvs";
+    $charArray = str_split($chars);
+    for($i = 0; $i < $num; $i++) {
+        $randPass = array_rand($charArray);
+        $result .= "" . $charArray[$randPass];
+    }
+    return $result;
 }
 
 function updateAdmin($id, $login, $email, $password)

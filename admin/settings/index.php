@@ -1,4 +1,5 @@
 <?php include '../includes/admin_header.php'; ?>
+
     <div id="page-wrapper">
 
         <div class="container-fluid">
@@ -9,6 +10,15 @@
                     <h2 class="page-header">
                         Settings
                     </h2>
+                    <?php
+                    if (isset($_SESSION['success'])) {
+
+                        echo " <div class=\"alert alert-success\">
+                                 <strong>Success!</strong>
+                               </div>";
+                        unset($_SESSION['success']);
+                    }
+                    ?>
                     <table class="table table-bordered table-hover">
 
 

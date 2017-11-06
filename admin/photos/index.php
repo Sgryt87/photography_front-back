@@ -1,5 +1,11 @@
 <?php include '../includes/admin_header.php';
 
+
+if (isset($_POST['select'])) {
+    echo $_POST['select'];
+}
+
+
 ?>
 
     <div id="page-wrapper">
@@ -12,14 +18,27 @@
                     <h2 class="page-header">
                         Photos <a href="add.php" class="btn btn-primary">Upload</a>
                     </h2>
-
                 </div>
             </div>
             <!-- /.row -->
 
 
             <div class="row">
-
+                <div class="col-xs-4">
+                    <form action="" method="post">
+                        <select name="select" id="" class="form-control">
+                            <option value="">Select Genre</option>
+                            <?php
+                            $result = getGenres();
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $genres_id = $row['id'];
+                                $genres_name = $row['name'];
+                                echo "<option value='$genres_id'>$genres_name</option>";
+                            }
+                            ?>
+                        </select>
+                    </form>
+                </div>
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
@@ -53,13 +72,9 @@
                     ?>
                     </tbody>
                 </table>
-
             </div>
-
-
         </div>
         <!-- /.container-fluid -->
-
     </div>
     <!-- /#page-wrapper -->
 <?php include '../includes/admin_footer.php'; ?>
