@@ -1,154 +1,103 @@
 <?php include 'includes/header.php'; ?>
 
-    <!-- Header -->
-    <div class="row">
-        <div class="col-lg-12 col-md-6 col-sm-6">
-            <div class="">
-                <h1>Photography</h1>
-                <p>my pictures.</p>
-            </div>
+<!--NAVBAR  -->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img src="img/sg.png" width="100px" alt=""></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="index.php">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Testimonials</a></li>
+                <li><a href="contact.php">Contact</a></li>
+            </ul>
         </div>
     </div>
-    <!-- /Header -->
+</nav>
+<!-- END NAVBAR  -->
 
-    <!-- Pagination GENRES -->
-    <h2>My Portfolio</h2>
+<!-- IMG SLIDER -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="img/mountains.png" alt="">
+            <div class="carousel-caption">
+                <h1>Get To Know Bootstrap</h1>
+                <br>
+                <button type="button" class="btn btn-default">Get Started</button>
+            </div>
+        </div>
+        <!-- end active items -->
+        <div class="item"><img src="img/snow.png" alt=""></div>
+        <div class="item"><img src="img/red.png" alt=""></div>
+    </div>
+    <!-- Start Slider Controls -->
+    <a href="#myCarousel" class="left carousel-control" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a href="#myCarousel" class="right carousel-control" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<br>
+<br>
+
+<div class="container">
     <div class="row">
-        <div id="genres">
-            <button class="btnGenre btnHover">All</button>
+        <div id="genres" class="col-lg-4 col-lg-offset-4">
+            <!-- /Pagination GENRES -->
+            <button class="genreBtn btnHover">All</button>
             <?php
             $result = getGenres();
             while ($row = mysqli_fetch_assoc($result)) {
-                echo "<button class='btnGenre'>" . $row['name'] . "</button>";
+                echo "<button class='genreBtn'>" . $row['name'] . "</button>";
             }
             ?>
         </div>
     </div>
-    <!-- Pagination GENRES -->
+</div>
 
-    <!-- IMG gallery -->
-    <!--    <div class="row">-->
-    <!--        <div class="container">-->
-    <!--            <div class="row" id="photos"></div>-->
-    <!--        </div>-->
-    <!--    </div>-->
+<br>
+<br>
+<section>
+    <div class="container">
 
+        <!-- /Pagination GENRES -->
 
-    <div class="container gallery-container">
-
-        <h1>My pictures</h1>
-
-        <p class="page-description text-center">Some text...</p>
-
-        <div class="tz-gallery">
-
-            <div class="row">
-                <!--                php here  -->
-                <div class="container">
-                    <div class="row" id="photos"></div>
-                </div>
-                <!--                /php here  -->
-
-                <!-- <div class="col-sm-12 col-md-4">
-                    <a class="lightbox" href="../images/bridge.jpg">
-                        <img src="../images/bridge.jpg" alt="Bridge">
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../images/park.jpg">
-                        <img src="../images/park.jpg" alt="Park">
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../images/tunnel.jpg">
-                        <img src="../images/tunnel.jpg" alt="Tunnel">
-                    </a>
-                </div>
-                <div class="col-sm-12 col-md-8">
-                    <a class="lightbox" href="../images/traffic.jpg">
-                        <img src="../images/traffic.jpg" alt="Traffic">
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../images/coast.jpg">
-                        <img src="../images/coast.jpg" alt="Coast">
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../images/rails.jpg">
-                        <img src="../images/rails.jpg" alt="Rails">
-                    </a>
-                </div> -->
-
-            </div>
+        <!--  IMG GALLERY      -->
+        <div class="row" id="photos">
 
         </div>
+        <!-- / IMG GALLERY -->
+        <br>
+        <br>
+
 
     </div>
-
-    <!-- /IMG gallery -->
-
-    <!-- Pagination -->
+</section>
+<!--Pagination-->
+<nav class="container-fluid">
     <div class="row">
-        <div id="pagination">
-            <div id="pagesBtn"></div>
-        </div>
+        <div id="pagesBtn" class="col-lg-4 col-lg-offset-4"></div>
     </div>
-    <!-- /Pagination -->
+</nav>
 
-    <!-- Footer -->
-
-    <!-- The content of your page would go here. -->
-    <div class="row">
-        <footer class="footer-distributed">
-
-            <div class="footer-left">
-
-                <h3>SG PIXELS<span>logo here</span></h3>
-
-                <p class="footer-links">
-                    <a href="#">Home</a>
-                    ·
-                    <a href="#">Blog</a>
-                    ·
-                    <a href="#">Pricing</a>
-                    ·
-                    <a href="#">About</a>
-                    ·
-                    <a href="#">Faq</a>
-                    ·
-                    <a href="#">Contact</a>
-                </p>
-
-                <p class="footer-company-name">SG PIXELS &copy; 2017</p>
-
-                <div class="footer-icons">
-
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-github"></i></a>
-
-                </div>
-
-            </div>
-
-            <div class="footer-right">
-
-                <p>Contact Us</p>
-
-                <form action="#" method="post">
-
-                    <input type="text" name="email" placeholder="Email"/>
-                    <textarea name="message" placeholder="Message"></textarea>
-                    <button>Send</button>
-
-                </form>
-
-            </div>
-
-        </footer>
-    </div>
+<!-- /Pagination -->
 
 
 <?php include 'includes/footer.php'; ?>

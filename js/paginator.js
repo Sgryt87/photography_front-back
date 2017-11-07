@@ -4,9 +4,9 @@ var pageNumber = 1;
 // next/prev
 // if pageNumber > 1 = > pagenumber - 1 and recall photospage();
 $(document).ready(function () {
-    var btnGenre = $('.btnGenre');
-    for (var i = 0; i < btnGenre.length; i++) {
-        $(btnGenre[i]).click(function () {
+    var genreBtn = $('.genreBtn');
+    for (var i = 0; i < genreBtn.length; i++) {
+        $(genreBtn[i]).click(function () {
             pageNumber = 1;
             $('button:contains(' + genre + ')').removeClass('btnHover');
             genre = $(this).text();
@@ -33,7 +33,7 @@ function photosPage() {
             $('#photos').empty();
             for (var i = 0; i < result.photos.length; i++) {
                 var imgSrc = './photos/' + result.photos[i].name;
-                $('#photos').append('<img src="' + imgSrc + '" alt="' + result.photos[i].name + '" class="col-md-4 col-sm-6 col-xs-12 img">');
+                $('#photos').append('<div class="gallery_product col-lg-4 col-md-6 col-sm-6 col-xs-12"><img src="' + imgSrc + '" alt="' + result.photos[i].name + '" class="img-responsive imgGallery"></div>');
             }
             $('#pagesBtn').empty();
             if (result.totalNumPages > 1) {

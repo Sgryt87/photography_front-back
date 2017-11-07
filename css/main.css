@@ -1,0 +1,147 @@
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 1% 0;
+    font-size: 1.2em;
+    border: 0;
+}
+
+.navbar-brand {
+    float: left;
+    min-height: 55px;
+    padding: 0 15px 5px;
+}
+
+.navbar-inverse .navbar-nav .active a,
+.navbar-inverse .navbar-nav .active a:focus,
+.navbar-inverse .navbar-nav .active a:hover {
+    color: #fff;
+    background-color: #1a1a1a;
+}
+
+.navbar-inverse .navbar-nav li a {
+    color: #d5d5d5;
+}
+
+.carousel-caption {
+    top: 50%;
+    transform: translateY(-50%);
+    text-transform: uppercase;
+}
+
+.btn {
+    font-size: 18px;
+    color: #fff;
+    padding: 12px 22px;
+    background: #1a1a1a;
+    border: 2px solid #fff;
+}
+
+.container {
+    margin: 4% auto;
+}
+
+#icon {
+    max-width: 200px;
+    margin: 1% auto;
+}
+
+footer {
+    width: 100%;
+    background-color: #1a1a1a;
+    padding: 5%;
+    color: #fff;
+}
+
+.fa {
+    padding: 15px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.fa:hover {
+    color: #d5d5d5;
+    text-decoration: none;
+}
+
+@media (max-width: 900px) {
+    .fa {
+        font-size: 20px;
+        padding: 10px;
+    }
+}
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none;
+    }
+
+    #icon {
+        max-width: 150px;
+    }
+
+    h4 {
+        font-size: 1.7em;
+    }
+}
+
+/*FIXED---------*/
+
+.btnHover {
+    background-color: #6f6f6f;
+}
+
+.genreBtn {
+    border: none;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 2% 4%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.imgGallery {
+    transition: 0.5s;
+    max-height: 365px;
+    padding: 0;
+    margin: 0;
+}
+
+.imgGallery:hover {
+    opacity: 0.8;
+}
+
+#pagination {
+    margin: auto;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+#pagesBtn {
+    margin-bottom: 100px;
+}
+
+.paginationBtn , #paginationBtnPrev, #paginationBtnNext {
+    border: none;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 2% 4%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.paginationBtn:hover {
+    background-color: #6f6f6f;
+}
+.activeBtn {
+    background-color: #5bc0de;
+}
+
+/*FIXED---------*/
