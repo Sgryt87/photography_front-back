@@ -18,10 +18,12 @@ function addPhoto($name, $genreid)
     return $request;
 }
 
-function getPhotos()
+function getPhotos($pagenum)
 {
     global $connection;
-    $query = 'SELECT * FROM photos';
+    $per_page = 10;
+    $start_index = ($pagenum - 1) * $per_page;
+    $query = "SELECT * FROM photos LIMIT $start_index, $per_page";
     $request = mysqli_query($connection, $query);
     if (!$request) {
         die('Not found' . mysqli_error());
@@ -40,6 +42,34 @@ function getPhotosCount()
     $count = mysqli_num_rows($request);
     return $count;
 }
+
+function getPhotosCountByGenre($genre)
+{
+    global $connection;
+    $query = "SELECT * FROM photos WHERE genreid = $genre";
+    $request = mysqli_query($connection, $query);
+    if (!$request) {
+        die('Not found' . mysqli_error($connection));
+    }
+    $count = mysqli_num_rows($request);
+    return $count;
+}
+
+function getPhotosByGenre($genreid, $pagenum)
+{
+    global $connection;
+    $per_page = 10;
+    $start_index = ($pagenum - 1) * $per_page;
+    $query = "SELECT photos.id, photos.name, photos.created
+              FROM photos INNER JOIN genres ON photos.genreid = genres.id
+              WHERE genres.id = '$genreid' ORDER BY photos.created DESC LIMIT $start_index, $per_page";
+    $request = mysqli_query($connection, $query);
+    if (!$request) {
+        die('Not found' . mysqli_error($connection));
+    }
+    return $request;
+}
+
 
 function getPhotoById($photoid)
 {
@@ -155,7 +185,7 @@ function saltGenerator($num)
     $result = "";
     $chars = "79h799g7g7g8we6cwege8c8813gf3c32787v484bv748b2vbshvdkshkvs";
     $charArray = str_split($chars);
-    for($i = 0; $i < $num; $i++) {
+    for ($i = 0; $i < $num; $i++) {
         $randPass = array_rand($charArray);
         $result .= "" . $charArray[$randPass];
     }

@@ -53,7 +53,8 @@ if (!isset($_SESSION['login']) || !isset($_SESSION['password'])) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">CMS Admin</a>
+            <a class="navbar-brand" href="../photos/index.php">CMS Admin</a>
+            <a class="navbar-brand" href="../../index.php">Website</a>
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">

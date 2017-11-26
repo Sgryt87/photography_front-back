@@ -1,7 +1,6 @@
 <?php include '../includes/admin_header.php'; ?>
 <?php
-if (isset($_POST['add_btn'])) {
-
+if (isset($_POST['add_btn']) && $_FILES['image']['name'] != '') {
     $post_photo = $_FILES['image']['name'];
     $post_photo_temp = $_FILES['image']['tmp_name'];
     $post_genre_id = $_POST['genre'];
@@ -9,10 +8,10 @@ if (isset($_POST['add_btn'])) {
         move_uploaded_file($post_photo_temp, __DIR__ . "../../../photos/$post_photo");
         addPhoto($post_photo, $post_genre_id);
         header("Location: index.php");
-    } else {
+    }
+    else {
         echo "<script type='text/javascript'>alert('This file already exists');</script>";
     }
-
 }
 
 ?>

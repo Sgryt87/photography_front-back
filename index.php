@@ -1,29 +1,5 @@
 <?php include 'includes/header.php'; ?>
 
-<!--NAVBAR  -->
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><img src="img/sg.png" width="100px" alt=""></a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="index.php">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Testimonials</a></li>
-                <li><a href="contact.php">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<!-- END NAVBAR  -->
-
 <!-- IMG SLIDER -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -54,16 +30,14 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-<br>
-<br>
 
 <div class="container">
     <div class="row">
-        <div id="genres" class="col-lg-4 col-lg-offset-4">
+        <div id="genres" class="col text-center">
             <!-- /Pagination GENRES -->
-            <button class="genreBtn btnHover">All</button>
             <?php
             $result = getGenres();
+            echo "<button class=\"genreBtn\">All</button>";
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<button class='genreBtn'>" . $row['name'] . "</button>";
             }
@@ -72,8 +46,6 @@
     </div>
 </div>
 
-<br>
-<br>
 <section>
     <div class="container">
 
@@ -84,8 +56,6 @@
 
         </div>
         <!-- / IMG GALLERY -->
-        <br>
-        <br>
 
 
     </div>
@@ -93,7 +63,7 @@
 <!--Pagination-->
 <nav class="container-fluid">
     <div class="row">
-        <div id="pagesBtn" class="col-lg-4 col-lg-offset-4"></div>
+        <div id="pagesBtn" class="col text-center"></div>
     </div>
 </nav>
 

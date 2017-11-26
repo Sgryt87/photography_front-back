@@ -21,8 +21,16 @@
     background-color: #1a1a1a;
 }
 
+.item img {
+    width: 100%;
+}
+
 .navbar-inverse .navbar-nav li a {
     color: #d5d5d5;
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+    color: #fff;
 }
 
 .carousel-caption {
@@ -40,7 +48,7 @@
 }
 
 .container {
-    margin: 4% auto;
+    margin: 0 4% auto;
 }
 
 #icon {
@@ -72,6 +80,7 @@ footer {
         padding: 10px;
     }
 }
+
 @media (max-width: 600px) {
     .carousel-caption {
         display: none;
@@ -87,32 +96,23 @@ footer {
 }
 
 /*FIXED---------*/
-
-.btnHover {
-    background-color: #6f6f6f;
+#genres, #pagesBtn {
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
-.genreBtn {
-    border: none;
-    border-radius: 4px;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    padding: 2% 4%;
-    font-size: 16px;
-    cursor: pointer;
+.btnHover {
+    background-color: whitesmoke !important;
+    color: #000000 !important;
+    transition: 0.6s !important;
 }
 
 .imgGallery {
-    transition: 0.5s;
-    max-height: 365px;
-    padding: 0;
-    margin: 0;
+    transition: 0.8s;
 }
 
 .imgGallery:hover {
-    opacity: 0.8;
+    opacity: 0.6;
 }
 
 #pagination {
@@ -121,27 +121,26 @@ footer {
     margin-bottom: 100px;
 }
 
-#pagesBtn {
-    margin-bottom: 100px;
+button:focus {
+    outline: 0;
 }
 
-.paginationBtn , #paginationBtnPrev, #paginationBtnNext {
+.genreBtn, .paginationBtn, #paginationBtnPrev, #paginationBtnNext {
     border: none;
-    border-radius: 4px;
-    color: white;
+    margin: 0.1em;
+    background: #1a1a1a;
+    color: #fff;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    padding: 2% 4%;
+    padding: 0.4em 0.9em;
     font-size: 16px;
     cursor: pointer;
 }
 
-.paginationBtn:hover {
-    background-color: #6f6f6f;
-}
-.activeBtn {
-    background-color: #5bc0de;
+.gallery_product {
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 /*FIXED---------*/

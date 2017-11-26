@@ -33,7 +33,7 @@ function photosPage() {
             $('#photos').empty();
             for (var i = 0; i < result.photos.length; i++) {
                 var imgSrc = './photos/' + result.photos[i].name;
-                $('#photos').append('<div class="gallery_product col-lg-4 col-md-6 col-sm-6 col-xs-12"><img src="' + imgSrc + '" alt="' + result.photos[i].name + '" class="img-responsive imgGallery"></div>');
+                $('#photos').append('<div class="gallery_product col-lg-4 col-md-6 col-sm-12 col-xs-12" style="padding: 0"><img src="' + imgSrc + '" alt="' + result.photos[i].name + '" class="img-responsive imgGallery center-block"></div>');
             }
             $('#pagesBtn').empty();
             if (result.totalNumPages > 1) {
