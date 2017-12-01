@@ -9,16 +9,14 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img src="img/mountains.png" alt="">
+            <img src="photos/DSC_8724.jpg" alt="">
             <div class="carousel-caption">
-                <h1>Get To Know Bootstrap</h1>
-                <br>
-                <button type="button" class="btn btn-default">Get Started</button>
+                <h1 id="welcome">Welcome to my website</h1>
             </div>
         </div>
         <!-- end active items -->
-        <div class="item"><img src="img/snow.png" alt=""></div>
-        <div class="item"><img src="img/red.png" alt=""></div>
+        <div class="item"><img src="photos/DSC_8919.jpg" alt=""></div>
+        <div class="item"><img src="photos/DSC_8927.jpg" alt=""></div>
     </div>
     <!-- Start Slider Controls -->
     <a href="#myCarousel" class="left carousel-control" role="button" data-slide="prev">
@@ -31,7 +29,7 @@
     </a>
 </div>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div id="genres" class="col text-center">
             <!-- /Pagination GENRES -->
@@ -47,17 +45,12 @@
 </div>
 
 <section>
-    <div class="container">
-
+    <div class="container-fluid">
         <!-- /Pagination GENRES -->
-
         <!--  IMG GALLERY      -->
         <div class="row" id="photos">
-
         </div>
         <!-- / IMG GALLERY -->
-
-
     </div>
 </section>
 <!--Pagination-->

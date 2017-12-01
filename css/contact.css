@@ -1,37 +1,44 @@
-body{
-    width:100%;
-    height:100%;
-    font-family: 'Roboto Condensed', sans-serif;
-
+#contact h2 {
+    margin: 65px 0 30px 0;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1.6em;
 }
 
-
-h1,h2,h3 {
-    margin:0 0 35px 0;
-    font-family: 'Patua One', cursive;
-    text-transform: uppercase;
-    letter-spacing:1px;
+#contact label {
+    font-weight: bold;
+    font-size: 20px;
+    color: #000000;
 }
 
-p{
-    margin:0 0 25px;
-    font-size:18px;
-    line-height:1.6em;
-}
-a{
-    color:#26a5d3;
-}
-a:hover,a:focus{
-    text-decoration:none;
-    color:#26a5d3;
+#contact {
+    background-color: whitesmoke;
+    transition: 0.6s;
+    border: 0.5px solid grey;
 }
 
-#contact{
-    background:#333333;
-    color:#f4f4f4;
-    padding-bottom:80px;
+#contact button{
+    font-weight: bold;
+    font-size: 20px;
+    color: #000000;
 }
 
-textarea.form-control{
-    height:100px;
+.sendButton {
+    margin: 30px 0;
+    background-color: whitesmoke;
+    font-weight: bold;
+    color: #000000;
+    transition: 0.6s;
+    border: 0.5px solid grey;
+}
+
+.sendButton:hover {
+    background-color: #000000 !important;
+    font-weight: bold !important;
+    color: whitesmoke!important;
+    transition: 0.7s !important;
+    border: 0.5px solid grey !important;
+}
+textarea.form-control {
+    height: 100px;
 }

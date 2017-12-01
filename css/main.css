@@ -1,16 +1,21 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: whitesmoke;
+}
+
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
     background-color: #1a1a1a;
     color: #fff;
-    padding: 1% 0;
+    padding: 0 0;
     font-size: 1.2em;
     border: 0;
 }
 
 .navbar-brand {
     float: left;
-    min-height: 55px;
+    min-height: 50px;
     padding: 0 15px 5px;
 }
 
@@ -18,19 +23,34 @@
 .navbar-inverse .navbar-nav .active a:focus,
 .navbar-inverse .navbar-nav .active a:hover {
     color: #fff;
-    background-color: #1a1a1a;
+    background-color: #111111;
 }
+
+.highlight {
+     color: #fff;
+     background-color: #111111;
+ }
 
 .item img {
     width: 100%;
 }
 
+#myCarousel {
+    margin-top: 50px;
+    /*margin-bottom: 30px;*/
+}
+
 .navbar-inverse .navbar-nav li a {
     color: #d5d5d5;
+    display: block;
+    text-align: center;
 }
 
 .navbar-inverse .navbar-nav li a:hover {
     color: #fff;
+    font-weight: bold;
+    background-color: #111111;
+    transition: 0.5s;
 }
 
 .carousel-caption {
@@ -39,12 +59,9 @@
     text-transform: uppercase;
 }
 
-.btn {
-    font-size: 18px;
-    color: #fff;
+#welcome {
+    margin-top: 1.95em;
     padding: 12px 22px;
-    background: #1a1a1a;
-    border: 2px solid #fff;
 }
 
 .container {
@@ -59,13 +76,17 @@
 footer {
     width: 100%;
     background-color: #1a1a1a;
-    padding: 5%;
+    padding: 20px;
     color: #fff;
+}
+
+footer h3 {
+    margin-bottom: 1em;
 }
 
 .fa {
     padding: 15px;
-    font-size: 20px;
+    font-size: 40px;
     color: #fff;
 }
 
@@ -76,8 +97,16 @@ footer {
 
 @media (max-width: 900px) {
     .fa {
-        font-size: 20px;
+        font-size: 30px;
         padding: 10px;
+    }
+
+    h4 {
+        font-size: 1.7em;
+    }
+
+    footer h4 {
+        margin-bottom: 1.5em;
     }
 }
 
@@ -93,18 +122,24 @@ footer {
     h4 {
         font-size: 1.7em;
     }
+
+    footer h4 {
+        margin-bottom: 1em;
+    }
 }
 
 /*FIXED---------*/
 #genres, #pagesBtn {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .btnHover {
     background-color: whitesmoke !important;
+    font-weight: bold !important;
     color: #000000 !important;
     transition: 0.6s !important;
+    border: 0.5px solid grey !important;
 }
 
 .imgGallery {
@@ -112,13 +147,11 @@ footer {
 }
 
 .imgGallery:hover {
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
-#pagination {
-    margin: auto;
-    text-align: center;
-    margin-bottom: 100px;
+img.lazy {
+    display: block;
 }
 
 button:focus {
@@ -143,4 +176,7 @@ button:focus {
     padding-left: 15px;
 }
 
+#faSection {
+    margin-top: 20px;
+}
 /*FIXED---------*/

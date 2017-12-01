@@ -19,6 +19,7 @@ $(document).ready(function () {
     //END
 });
 
+
 function photosPage() {
     $.ajax({
         url: './webApi/getPhotos.php?name=' + genre + '&page=' + pageNumber,

@@ -2,66 +2,98 @@
 
 <?php
 if (isset($_POST['send'])) {
-    $name = trim($_POST['name']);
-    $subject = trim($_POST['subject']);
-    $email = trim($_POST['email']);
-    $message = trim($_POST['message']);
-    //get email from DB
+
+    $name = $_POST['name'];
+    $subject = ($_POST['subject']);
+    $email = ($_POST['email']);
+    $message = ($_POST['message']);
+
+    $string_exp = "/^[A-Za-z .'-]+$/";
+    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
+    $error = '';
+
+    if (!preg_match($string_exp, $name)) {
+        $error .= "The First Name you entered does not appear to be valid.<br>";
+    }
+    if (!preg_match($string_exp, $subject)) {
+        $error .= "The Subject you entered do not appear to be valid.<br>";
+    }
+    if (!preg_match($email_exp, $email)) {
+        $error .= "The Email you entered do not appear to be valid.<br>";
+    }
+    if (!preg_match($string_exp, $message)) {
+        $error .= "The Comments you entered do not appear to be valid.<br>";
+    }
+    if (strlen($error) > 0) {
+        died($error);
+    }
+    function died($error)
+    {
+        echo "We are very sorry, but there were error(s) found with the form you submitted. ";
+        echo "These errors appear below.<br /><br />";
+        echo $error . "<br /><br />";
+        echo "Please go back and fix these errors.<br /><br />";
+        die();
+    }
+
+    function clean_input($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
+    $name = clean_input($name);
+    $subject = clean_input($subject);
+    $email = clean_input($email);
+    $message = clean_input($message);
+
+
+//get email from DB
     $admin_email = 'sergiigrytsaienko@gmail.com';
     $headers = "From: $email" . "\r\n" .
-               "Reply-To: $email" . "\r\n" .
-               'X-Mailer: PHP/' . phpversion();
+        "Reply-To: $email" . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
 
     $result = mail($admin_email, $subject, $message, $headers);
-
+    header('Location: contact.php');
     if (!$result) {
         echo "<script>alert('Wrong')</script>";
     }
-
 }
 
 ?>
 
     <section id="contact" class="content-section text-center">
         <div class="contact-section">
-            <h2>Contact Us</h2>
-            <p>Feel free to shout us by feeling the contact form or visiting our social network sites like
-                Fackebook,Whatsapp,Twitter.</p>
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <form class="form-horizontal" method="post">
+                        <h2>Contact Me</h2>
                         <div class="form-group">
-                            <label for="exampleInputName2">Name</label>
-                            <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe"
+                            <label for="exampleInputName2"><b>Name</b></label>
+                            <input type="text" class="form-control" id="exampleInputName2" placeholder="Name"
                                    name="name">
+
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputName2">Subject</label>
+                            <label for="exampleInputName2"><b>Subject</b></label>
                             <input type="text" class="form-control" id="exampleInputName2" placeholder="Subject"
                                    name="subject">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail2">Email</label>
+                            <label for="exampleInputEmail2"><b>Email</b></label>
                             <input type="email" class="form-control" id="exampleInputEmail2"
-                                   placeholder="jane.doe@example.com" name="email">
+                                   placeholder="Email" name="email">
                         </div>
                         <div class="form-group ">
-                            <label for="exampleInputText">Your Message</label>
+                            <label for="exampleInputText"><b>Your Message</b></label>
                             <textarea class="form-control" placeholder="Description" name="message"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-default" name="send">Send Message</button>
+                        <button type="submit" class="btn btn-default sendButton" name="send"><b>Send Message</b>
+                        </button>
                     </form>
-
-                    <hr>
-                    <h3>Our Social Sites</h3>
-                    <ul class="list-inline banner-social-buttons">
-                        <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-twitter"> <span
-                                            class="network-name">Twitter</span></i></a></li>
-                        <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook"> <span
-                                            class="network-name">Facebook</span></i></a></li>
-                        <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-youtube-play"> <span
-                                            class="network-name">Youtube</span></i></a></li>
-                    </ul>
                 </div>
             </div>
         </div>
