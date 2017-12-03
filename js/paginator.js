@@ -34,8 +34,13 @@ function photosPage() {
             $('#photos').empty();
             for (var i = 0; i < result.photos.length; i++) {
                 var imgSrc = './photos/' + result.photos[i].name;
-                $('#photos').append('<div class="gallery_product col-lg-4 col-md-6 col-sm-12 col-xs-12" style="padding: 0"><img src="' + imgSrc + '" alt="' + result.photos[i].name + '" class="img-responsive imgGallery center-block"></div>');
+                var obj = $('#photos').append('<div class="gallery_product col-lg-4 col-md-6 col-sm-12 col-xs-12" style="padding: 0"><img src="' + imgSrc + '" alt="' + result.photos[i].name + '" class="img-responsive imgGallery center-block transparent"></div>');
             }
+            var images = $('#photos img');
+            for (var i = 0; i < images.length; i++){
+                $(images[i]).animate({opacity: 1.0, width: '100%'}, 200, "linear");
+            }
+
             $('#pagesBtn').empty();
             if (result.totalNumPages > 1) {
                 if (result.totalNumPages < 5) {
@@ -84,7 +89,9 @@ function photosPage() {
                         }
                     }
                 }
-                $('button:contains(' + pageNumber + ')').addClass('btnHover');
+                var activeBtn = $('button:contains(' + pageNumber + ')');
+                activeBtn.css('background-color');
+                activeBtn.addClass('btnHover');
                 $('#pagesBtn').prepend('<button id="paginationBtnPrev">Prev</button>');
                 $('#pagesBtn').append('<button id="paginationBtnNext">Next</button>');
                 $('#paginationBtnPrev').click(function () {
@@ -104,5 +111,3 @@ function photosPage() {
         type: 'GET'
     });
 }
-
-

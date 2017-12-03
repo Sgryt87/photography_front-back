@@ -1,11 +1,11 @@
 <?php
 $photos_dir = __DIR__ . "/../../photos/";
 
-$connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-if (!$connection) {
-    die('Database connection failed' . mysqli_error($connection));
+function escape($string)
+{
+    global $connection;
+    return mysqli_real_escape_string($connection, trim($string));
 }
-
 
 function addPhoto($name, $genreid)
 {

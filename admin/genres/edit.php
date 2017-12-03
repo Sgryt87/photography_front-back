@@ -1,12 +1,12 @@
 <?php include "../includes/admin_header.php"; ?>
 
 <?php
-$genres_id = $_GET['g_id'];
+$genres_id = escape($_GET['g_id']);
 $genres_name = getGenreById($genres_id);
 
 if (isset($_POST['update_genres'])) {
 
-    updateGenre($genres_id, $_POST['genre_name']);
+    updateGenre($genres_id, escape($_POST['genre_name']));
 
     header('Location: index.php');
 }

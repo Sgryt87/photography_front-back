@@ -5,7 +5,7 @@
 
 if (isset($_POST['add_genres'])) {
 
-    addGenre($_POST['genre_name']);
+    addGenre(escape($_POST['genre_name']));
 
     header('Location: index.php');
 }

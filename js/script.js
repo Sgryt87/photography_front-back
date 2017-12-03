@@ -1,11 +1,6 @@
-$(document).ready(function () {
-    // $(function() {
-    //     $('.lazy').lazy({
-    //         effect: "fadeIn",
-    //         effectTime: 2000,
-    //         threshold: 0
-    //     });
-    });
+// $(document).ready(function () {
+//
+//     });
 
     // $('a').click(function(){
     //     $('a').removeClass("highlight");

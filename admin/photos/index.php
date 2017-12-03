@@ -1,11 +1,11 @@
 <?php include '../includes/admin_header.php';
 $page_num = 1;
 if (isset($_GET['page'])) {
-    $page_num = $_GET['page'];
+    $page_num = escape($_GET['page']);
 }
 $genre = 'All';
 if (isset($_GET['genre'])) {
-    $genre = $_GET['genre'];
+    $genre = escape($_GET['genre']);
 }
 ?>
     <div id="page-wrapper">

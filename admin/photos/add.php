@@ -3,7 +3,7 @@
 if (isset($_POST['add_btn']) && $_FILES['image']['name'] != '') {
     $post_photo = $_FILES['image']['name'];
     $post_photo_temp = $_FILES['image']['tmp_name'];
-    $post_genre_id = $_POST['genre'];
+    $post_genre_id = escape($_POST['genre']);
     if(!file_exists(__DIR__ . "../../../photos/$post_photo")) {
         move_uploaded_file($post_photo_temp, __DIR__ . "../../../photos/$post_photo");
         addPhoto($post_photo, $post_genre_id);

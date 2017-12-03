@@ -1,13 +1,44 @@
 <?php
 include '../../db/global_config.php';
-include '../db/admin_script.php'; ?>
-<?php session_start();
-if(isset($_SESSION['login']) && isset($_SESSION['password']) ) {
+include '../db/admin_script.php';
+session_start();
+if (isset($_SESSION['login']) && isset($_SESSION['password'])) {
     header('Location: ../dashboard/index.php');
+    exit;
 }
 
+global $connection;
+if (isset($_POST['login_btn'])) {
+    $admin_login = trim($_POST['login']);
+    $admin_password = trim($_POST['password']);
+    $admin_login = mysqli_real_escape_string($connection, $admin_login);
+    $admin_password = mysqli_real_escape_string($connection, $admin_password);
 
 
+    $query = "SELECT * FROM admin WHERE login = '$admin_login'";
+    $select_admin_query = mysqli_query($connection, $query);
+
+    unset($_SESSION['login']);
+    unset($_SESSION['password']);
+
+    $row = mysqli_fetch_array($select_admin_query);
+    if (empty($row)) {
+        echo "<script type='text/javascript'>alert('Login information is not correct')</script>";
+    } else {
+        $db_admin_login_id = $row['id'];
+        $db_admin_login = $row['login'];
+        $db_admin_password = $row['hash'];
+
+        if ($admin_login === $db_admin_login && password_verify($admin_password, $db_admin_password)) {
+            $_SESSION['login'] = $db_admin_login;
+            $_SESSION['password'] = $db_admin_password;
+            header('Location: ../dashboard/index.php');
+            exit;
+        } else {
+            echo "<script type='text/javascript'>alert('Login information is not correct')</script>";
+        }
+    }
+}
 ?>
 
 
@@ -56,39 +87,5 @@ if(isset($_SESSION['login']) && isset($_SESSION['password']) ) {
 <script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
-<?php
-if (isset($_POST['login_btn'])) {
-    $admin_login = trim($_POST['login']);
-    $admin_password = trim($_POST['password']);
-    $admin_login = mysqli_real_escape_string($connection, $admin_login);
-    $admin_password = mysqli_real_escape_string($connection, $admin_password);
-
-
-    $query = "SELECT * FROM admin WHERE login = '$admin_login'";
-    $select_admin_query = mysqli_query($connection, $query);
-
-    unset($_SESSION['login']);
-    unset($_SESSION['password']);
-
-    $row = mysqli_fetch_array($select_admin_query);
-    if (empty($row)) {
-        echo "<script type='text/javascript'>alert('Login information is not correct')</script>";
-    } else {
-        $db_admin_login_id = $row['id'];
-        $db_admin_login = $row['login'];
-        $db_admin_password = $row['hash'];
-
-        if ($admin_login === $db_admin_login && password_verify($admin_password, $db_admin_password)) {
-            $_SESSION['login'] = $db_admin_login;
-            $_SESSION['password'] = $db_admin_password;
-            header('Location: ../dashboard/index.php');
-        } else {
-            echo "<script type='text/javascript'>alert('Login information is not correct')</script>";
-        }
-    }
-}
-?>
 
 

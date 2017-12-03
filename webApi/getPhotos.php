@@ -1,8 +1,7 @@
 <?php
-$connection = mysqli_connect('localhost', 'root', '', 'photography');
-if (!$connection) {
-    die('Database connection fail' . mysqli_error($connection));
-}
+include '../db/global_config.php';
+global $connection;
+
 $genre = $_GET['name'] ?? 'All';
 //if (!isset($genre)) {
 //    die("Genre not found");

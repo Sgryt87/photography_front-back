@@ -1,7 +1,7 @@
 <?php include "../includes/admin_header.php"; ?>
 
 <?php
-$admin_id = $_GET['a_id'];
+$admin_id = escape($_GET['a_id']);
 
 $result = getAdmin();
 while ($row = mysqli_fetch_assoc($result)) {

@@ -1,8 +1,8 @@
 <?php
+include 'db/global_config.php';
 require_once 'db/script.php';
 session_start();
 ?>
-<?php connection(); ?>
 
 
 <!DOCTYPE html>

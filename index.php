@@ -1,29 +1,25 @@
 <?php include 'includes/header.php'; ?>
 
-<!-- IMG SLIDER -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div id="mainCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#mainCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#mainCarousel" data-slide-to="1"></li>
+        <li data-target="#mainCarousel" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="photos/DSC_8724.jpg" alt="">
-            <div class="carousel-caption">
+        <div class="item active" style="background-image: url('photos/DSC_8724.jpg')">
+            <div class="carousel-caption d-none d-md-block">
                 <h1 id="welcome">Welcome to my website</h1>
             </div>
         </div>
-        <!-- end active items -->
-        <div class="item"><img src="photos/DSC_8919.jpg" alt=""></div>
-        <div class="item"><img src="photos/DSC_8927.jpg" alt=""></div>
+        <div class="item" style="background-image: url('photos/DSC_8919.jpg')"></div>
+        <div class="item" style="background-image: url('photos/DSC_8927.jpg')"></div>
     </div>
-    <!-- Start Slider Controls -->
-    <a href="#myCarousel" class="left carousel-control" role="button" data-slide="prev">
+    <a href="#mainCarousel" class="left carousel-control" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
     </a>
-    <a href="#myCarousel" class="right carousel-control" role="button" data-slide="next">
+    <a href="#mainCarousel" class="right carousel-control" role="button" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>

@@ -1,14 +1,33 @@
-<?php include 'includes/header.php'; ?>
+<?php include 'includes/header.php';
 
-<?php
+function died($error)
+{
+    echo "We are very sorry, but there were error(s) found with the form you submitted.";
+    echo "These errors appear below.<br><br>";
+    echo $error . "<br><br>";
+    echo "Please go back and fix these errors.<br><br>";
+    die();
+}
+
+function clean_input($data)
+{
+    global $connection;
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    $data = mysqli_real_escape_string($connection, $data);
+    return $data;
+}
+
+
 if (isset($_POST['send'])) {
 
     $name = $_POST['name'];
-    $subject = ($_POST['subject']);
-    $email = ($_POST['email']);
-    $message = ($_POST['message']);
+    $subject = $_POST['subject'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
 
-    $string_exp = "/^[A-Za-z .'-]+$/";
+    $string_exp = "/^[A-Za-z0-9 .'-]+$/";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
     $error = '';
 
@@ -27,22 +46,6 @@ if (isset($_POST['send'])) {
     if (strlen($error) > 0) {
         died($error);
     }
-    function died($error)
-    {
-        echo "We are very sorry, but there were error(s) found with the form you submitted. ";
-        echo "These errors appear below.<br /><br />";
-        echo $error . "<br /><br />";
-        echo "Please go back and fix these errors.<br /><br />";
-        die();
-    }
-
-    function clean_input($data)
-    {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
 
     $name = clean_input($name);
     $subject = clean_input($subject);
@@ -57,9 +60,11 @@ if (isset($_POST['send'])) {
         'X-Mailer: PHP/' . phpversion();
 
     $result = mail($admin_email, $subject, $message, $headers);
-    header('Location: contact.php');
+    var_dump($result);
     if (!$result) {
         echo "<script>alert('Wrong')</script>";
+    } else {
+        echo "<h1>SENT</h1>";
     }
 }
 
