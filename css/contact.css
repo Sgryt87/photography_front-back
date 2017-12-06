@@ -23,6 +23,20 @@
     color: #000000;
 }
 
+input::placeholder {
+  color: #6b6b6b;
+}
+
+input.form-control textarea.form-control {
+    color: #33333;
+    font-size: 16px;
+}
+
+.error { 
+    color:red;
+    font-weight: bold;
+}
+
 .sendButton {
     margin: 30px 0;
     background-color: whitesmoke;
